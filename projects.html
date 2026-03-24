@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects — Anurag Davesar</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.projects-hero { padding:5rem 3rem 3rem; position:relative;z-index:1; }
+
+.project-full {
+  margin:0 3rem 2px;
+  background:var(--surface);
+  display:grid; grid-template-columns:1fr 1.4fr;
+  gap:0; min-height:420px;
+  position:relative; overflow:hidden;
+  transition:transform .3s;
+}
+.project-full:hover { transform:translateY(-4px); }
+.project-full.flip { grid-template-columns:1.4fr 1fr; }
+
+.proj-meta {
+  padding:3rem;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  border-right:1px solid var(--border);
+  position:relative;
+}
+.project-full.flip .proj-meta { border-right:none; border-left:1px solid var(--border); order:2; }
+.proj-num {
+  font-family:'Syne',sans-serif; font-size:5rem; font-weight:800;
+  color:rgba(0,255,136,.06); line-height:1; position:absolute;
+  top:1.5rem; right:1.5rem;
+}
+.proj-date { font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; }
+.proj-name { font-family:'Syne',sans-serif; font-size:2.2rem; font-weight:800; color:#fff; margin-bottom:.8rem; }
+.proj-tech { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.5rem; }
+.tech-pill {
+  font-size:.58rem; padding:.2rem .6rem;
+  background:rgba(0,255,136,.06); border:1px solid rgba(0,255,136,.18);
+  color:var(--accent); letter-spacing:.1em; text-transform:uppercase;
+}
+.proj-summary { font-size:.76rem; color:var(--muted); line-height:1.9; flex:1; }
+.proj-actions { display:flex; gap:.8rem; margin-top:2rem; }
+.proj-btn {
+  font-size:.62rem; padding:.5rem 1.2rem; letter-spacing:.1em; text-transform:uppercase;
+  text-decoration:none; transition:all .2s; cursor:none; border:none;
+}
+.proj-btn-primary { background:var(--accent); color:#050a0f; font-family:'Space Mono',monospace; font-weight:700; }
+.proj-btn-primary:hover { background:#00cc66; }
+.proj-btn-outline { border:1px solid var(--border); color:var(--muted); font-family:'Space Mono',monospace; }
+.proj-btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+
+.proj-detail {
+  padding:3rem;
+  display:flex; flex-direction:column; gap:1rem;
+}
+.project-full.flip .proj-detail { order:1; }
+.proj-detail-title { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent2); margin-bottom:.3rem; }
+.feat-list { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+.feat-list li {
+  font-size:.72rem; padding:.6rem 0; border-bottom:1px solid var(--border);
+  color:var(--text); display:flex; gap:.7rem; line-height:1.7; opacity:.85;
+}
+.feat-list li::before { content:'◆'; color:var(--accent); flex-shrink:0; font-size:.5rem; margin-top:.3rem; }
+
+/* highlight pill */
+.hl-pill {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.62rem; padding:.3rem .8rem;
+  background:rgba(255,68,102,.06); border:1px solid rgba(255,68,102,.2);
+  color:var(--accent3); letter-spacing:.08em; margin-top:auto;
+}
+
+.projects-more { padding:5rem 3rem; position:relative;z-index:1; }
+.more-title { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:#fff; margin-bottom:2rem; }
+
+@media(max-width:900px){
+  .projects-hero { padding:4rem 1.5rem 2rem; }
+  .project-full, .project-full.flip { grid-template-columns:1fr; margin:0 1.5rem 2px; }
+  .project-full.flip .proj-meta { border-left:none; border-top:1px solid var(--border); order:2; }
+  .project-full.flip .proj-detail { order:1; }
+  .proj-meta { border-right:none; border-bottom:1px solid var(--border); }
+  .proj-num { font-size:3rem; }
+  .projects-more { padding:4rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<div class="grid-bg"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">AD_</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="hide-sm">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="certifications.html" class="hide-sm">Certs</a></li>
+    <li><a href="education.html" class="hide-sm">Education</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resume.html" class="nav-resume">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <section class="projects-hero">
+    <div class="section-tag reveal">Portfolio</div>
+    <h1 class="page-title reveal">My <span class="accent">Projects</span></h1>
+    <p class="page-subtitle reveal">Offensive tools, mobile apps, and security automation — built from scratch.</p>
+  </section>
+
+  <!-- PROJECT 1 -->
+  <div class="project-full reveal">
+    <div class="proj-meta">
+      <div class="proj-num">01</div>
+      <div>
+        <div class="proj-date">Feb 2025</div>
+        <div class="proj-name">Recon-X</div>
+        <div class="proj-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">Bash</span>
+          <span class="tech-pill">Nuclei</span>
+          <span class="tech-pill">Subfinder</span>
+          <span class="tech-pill">Naabu</span>
+          <span class="tech-pill">Go</span>
+        </div>
+        <p class="proj-summary">
+          An automated, modular reconnaissance and vulnerability hunting framework that orchestrates industry-standard offensive security tools into a unified pipeline — built for speed, depth, and enterprise-grade reporting.
+        </p>
+      </div>
+      <div class="proj-actions">
+        <a href="#" class="proj-btn proj-btn-primary">View on GitHub</a>
+        <a href="#" class="proj-btn proj-btn-outline">Live Demo</a>
+      </div>
+    </div>
+    <div class="proj-detail">
+      <div>
+        <div class="proj-detail-title">Core Features</div>
+        <ul class="feat-list">
+          <li>Engineered automated, modular recon pipeline orchestrating Nuclei, Subfinder, and Naabu via Python subprocess management</li>
+          <li>Custom JSON CVE Extractor — filters noisy scanner logs and isolates critical/high-severity CVEs into actionable, clean reports</li>
+          <li>Targeted "Sniper Mode" for rapid zero-day vulnerability scanning with automated visual recon via headless browsers</li>
+          <li>MITRE ATT&CK framework mapping integrated into the scanning pipeline for standardized threat reporting and enterprise risk assessment</li>
+        </ul>
+      </div>
+      <div class="hl-pill">🔴 MITRE ATT&CK · CVE Extraction · Zero-Day Scanning</div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project-full flip reveal">
+    <div class="proj-meta">
+      <div class="proj-num">02</div>
+      <div>
+        <div class="proj-date">Mar – May 2024</div>
+        <div class="proj-name">NovaPulse</div>
+        <div class="proj-tech">
+          <span class="tech-pill">Flutter</span>
+          <span class="tech-pill">Firebase</span>
+          <span class="tech-pill">Firestore</span>
+          <span class="tech-pill">IAM</span>
+          <span class="tech-pill">Cloud Storage</span>
+        </div>
+        <p class="proj-summary">
+          A full-stack service discovery mobile application that connects city newcomers with local vendors and handymen — featuring secure authentication, real-time messaging, and optimized media delivery.
+        </p>
+      </div>
+      <div class="proj-actions">
+        <a href="#" class="proj-btn proj-btn-primary">View on GitHub</a>
+        <a href="#" class="proj-btn proj-btn-outline">Screenshots</a>
+      </div>
+    </div>
+    <div class="proj-detail">
+      <div>
+        <div class="proj-detail-title">Core Features</div>
+        <ul class="feat-list">
+          <li>Secure IAM via Firebase Authentication — user registration, session management, and encrypted data storage with 24/7 availability</li>
+          <li>Real-time messaging architecture using Firebase Cloud Firestore for low-latency, synchronized two-way communication</li>
+          <li>Firebase Cloud Storage integration for optimized media asset delivery ensuring a responsive, high-performance UI</li>
+          <li>Cross-platform Flutter UI seamlessly targeting both Android and iOS from a single codebase</li>
+        </ul>
+      </div>
+      <div class="hl-pill" style="background:rgba(0,170,255,.06);border-color:rgba(0,170,255,.2);color:var(--accent2);">🔵 Full-Stack · Real-Time · Cross-Platform</div>
+    </div>
+  </div>
+
+  <section class="projects-more">
+    <div class="more-title reveal">More Coming Soon</div>
+    <p class="reveal" style="font-size:.76rem;color:var(--muted);line-height:1.9;max-width:520px;margin-bottom:2rem;">
+      Currently working on additional offensive security tooling and CTF writeups. Follow my GitHub to stay updated.
+    </p>
+    <a href="https://github.com/anurag-davesar" target="_blank" class="btn btn-outline reveal">GitHub Profile →</a>
+  </section>
+
+  <footer>
+    <span>Anurag Davesar © 2025</span>
+    <span>anuragdavesa@gmail.com</span>
+  </footer>
+</div>
+<script src="shared.js"></script>
+</body>
+</html>

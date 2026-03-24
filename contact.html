@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Anurag Davesar</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.contact-wrap {
+  padding:5rem 3rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:6rem;
+  align-items:start; position:relative;z-index:1; min-height:90vh;
+}
+.contact-headline {
+  font-family:'Syne',sans-serif; font-size:clamp(2.5rem,6vw,4.5rem);
+  font-weight:800; color:#fff; line-height:.95; letter-spacing:-.02em; margin-bottom:1.5rem;
+}
+.contact-headline .accent { color:var(--accent); }
+.contact-sub { font-size:.76rem; color:var(--muted); line-height:1.9; margin-bottom:2.5rem; max-width:400px; }
+
+/* AVAILABILITY BADGE */
+.avail-badge {
+  display:inline-flex; align-items:center; gap:.7rem;
+  font-size:.62rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--accent); border:1px solid var(--border);
+  padding:.5rem 1.2rem; margin-bottom:2rem; background:rgba(0,255,136,.03);
+}
+.avail-dot { width:8px;height:8px;background:var(--accent);border-radius:50%;animation:blink 1s step-end infinite; }
+
+/* CONTACT LINKS */
+.contact-links { display:flex; flex-direction:column; gap:2px; margin-top:1rem; }
+.c-link {
+  display:grid; grid-template-columns:56px 1fr auto;
+  align-items:center; gap:1.2rem; padding:1.4rem 1.5rem;
+  background:var(--surface); text-decoration:none;
+  border-left:2px solid transparent; transition:all .3s; cursor:none;
+}
+.c-link:hover { border-left-color:var(--accent); background:rgba(0,255,136,.03); transform:translateX(6px); }
+.c-icon {
+  width:44px;height:44px; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0;
+}
+.c-label { font-size:.58rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); }
+.c-value { font-size:.76rem; color:var(--text); margin-top:.15rem; }
+.c-arrow { color:var(--muted); font-size:.8rem; transition:color .2s, transform .2s; }
+.c-link:hover .c-arrow { color:var(--accent); transform:translateX(4px); }
+
+/* FORM SIDE */
+.contact-form-wrap { padding-top:1rem; }
+.form-title { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800; color:#fff; margin-bottom:2rem; }
+
+.form-group { margin-bottom:1.5rem; }
+.form-label { font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:.5rem; }
+.form-input, .form-textarea {
+  width:100%; background:var(--surface); border:1px solid var(--border);
+  color:var(--text); font-family:'Space Mono',monospace; font-size:.76rem;
+  padding:.9rem 1rem; outline:none; transition:border-color .2s, background .2s;
+  resize:none;
+}
+.form-input:focus, .form-textarea:focus { border-color:var(--accent); background:rgba(0,255,136,.02); }
+.form-input::placeholder, .form-textarea::placeholder { color:var(--muted); }
+.form-textarea { height:140px; }
+
+.form-send {
+  width:100%; background:var(--accent); color:#050a0f;
+  border:none; font-family:'Space Mono',monospace; font-size:.72rem;
+  font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  padding:1rem; cursor:none; transition:all .2s;
+}
+.form-send:hover { background:#00cc66; transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,255,136,.2); }
+
+/* Success message */
+.form-success {
+  display:none; padding:1.2rem; background:rgba(0,255,136,.06);
+  border:1px solid rgba(0,255,136,.2); color:var(--accent);
+  font-size:.72rem; letter-spacing:.05em; text-align:center; margin-top:1rem;
+}
+.form-success.show { display:block; }
+
+@media(max-width:900px){
+  .contact-wrap { grid-template-columns:1fr; gap:3rem; padding:4rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<div class="grid-bg"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">AD_</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="hide-sm">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="certifications.html" class="hide-sm">Certs</a></li>
+    <li><a href="education.html" class="hide-sm">Education</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resume.html" class="nav-resume">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="contact-wrap">
+    <!-- LEFT -->
+    <div class="reveal">
+      <div class="avail-badge"><span class="avail-dot"></span> Open to Opportunities</div>
+      <h1 class="contact-headline">Let's<br><span class="accent">Connect.</span></h1>
+      <p class="contact-sub">
+        Whether you're looking for a cybersecurity intern, collaborator on a red team project, or just want to talk security — I'm all ears. Reach out through any channel below.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:anuragdavesa@gmail.com" class="c-link">
+          <div class="c-icon">✉️</div>
+          <div>
+            <div class="c-label">Email</div>
+            <div class="c-value">anuragdavesa@gmail.com</div>
+          </div>
+          <span class="c-arrow">→</span>
+        </a>
+        <a href="https://linkedin.com/in/anuragdavesar" target="_blank" class="c-link">
+          <div class="c-icon">💼</div>
+          <div>
+            <div class="c-label">LinkedIn</div>
+            <div class="c-value">linkedin.com/in/anuragdavesar</div>
+          </div>
+          <span class="c-arrow">→</span>
+        </a>
+        <a href="https://github.com/anurag-davesar" target="_blank" class="c-link">
+          <div class="c-icon">🐙</div>
+          <div>
+            <div class="c-label">GitHub</div>
+            <div class="c-value">github.com/anurag-davesar</div>
+          </div>
+          <span class="c-arrow">→</span>
+        </a>
+        <a href="tel:+918968184066" class="c-link">
+          <div class="c-icon">📱</div>
+          <div>
+            <div class="c-label">Mobile</div>
+            <div class="c-value">+91-8968184066</div>
+          </div>
+          <span class="c-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT — FORM -->
+    <div class="contact-form-wrap reveal">
+      <div class="form-title">Send a Message</div>
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input class="form-input" type="text" placeholder="John Doe" id="f-name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" placeholder="john@example.com" id="f-email">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <input class="form-input" type="text" placeholder="Internship / Collaboration / Hello" id="f-subject">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Write your message here..." id="f-msg"></textarea>
+      </div>
+      <button class="form-send" onclick="handleSend()">Send Message →</button>
+      <div class="form-success" id="form-success">✓ Message sent! I'll get back to you soon.</div>
+    </div>
+  </div>
+
+  <footer>
+    <span>Anurag Davesar © 2025</span>
+    <span>anuragdavesa@gmail.com</span>
+  </footer>
+</div>
+
+<script src="shared.js"></script>
+<script>
+function handleSend() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const msg = document.getElementById('f-msg').value.trim();
+  if (!name || !email || !msg) { alert('Please fill in all required fields.'); return; }
+  // Opens mail client with pre-filled content
+  const sub = encodeURIComponent(document.getElementById('f-subject').value || 'Portfolio Contact');
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
+  window.location.href = `mailto:anuragdavesa@gmail.com?subject=${sub}&body=${body}`;
+  document.getElementById('form-success').classList.add('show');
+}
+</script>
+</body>
+</html>

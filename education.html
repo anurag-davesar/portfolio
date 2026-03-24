@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Education — Anurag Davesar</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.edu-hero { padding:5rem 3rem 3rem; position:relative;z-index:1; }
+
+.timeline-section { padding:3rem 3rem 6rem; position:relative;z-index:1; }
+
+/* Vertical timeline line */
+.timeline {
+  position:relative; margin-top:4rem;
+  padding-left:60px;
+}
+.timeline::before {
+  content:''; position:absolute; left:20px; top:0; bottom:0; width:1px;
+  background:linear-gradient(to bottom, var(--accent), transparent);
+}
+
+.tl-item {
+  position:relative; margin-bottom:4rem;
+  opacity:0; transform:translateX(-20px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.tl-item.visible { opacity:1; transform:translateX(0); }
+
+.tl-dot {
+  position:absolute; left:-48px; top:8px;
+  width:18px; height:18px; border-radius:50%;
+  background:var(--bg); border:2px solid var(--accent);
+  display:flex; align-items:center; justify-content:center;
+}
+.tl-dot::after { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); }
+
+.tl-card {
+  background:var(--surface); padding:2.5rem;
+  position:relative; overflow:hidden; transition:transform .3s;
+}
+.tl-card:hover { transform:translateX(8px); }
+.tl-card::before {
+  content:''; position:absolute; top:0; left:0; bottom:0; width:3px;
+  background:var(--accent); transform:scaleY(0); transform-origin:top; transition:transform .4s;
+}
+.tl-card:hover::before { transform:scaleY(1); }
+
+.tl-period {
+  font-size:.62rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:1rem; display:flex; align-items:center; gap:.8rem;
+}
+.tl-current {
+  font-size:.58rem; padding:.2rem .6rem; background:rgba(0,255,136,.08);
+  border:1px solid rgba(0,255,136,.2); color:var(--accent); letter-spacing:.1em;
+}
+.tl-degree { font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:800; color:#fff; margin-bottom:.4rem; }
+.tl-school { font-size:.78rem; color:var(--accent2); margin-bottom:1.2rem; }
+.tl-grade {
+  display:inline-flex; align-items:center; gap:.5rem; font-size:.65rem;
+  padding:.3rem .9rem; background:rgba(0,170,255,.06); border:1px solid rgba(0,170,255,.18);
+  color:var(--accent2); letter-spacing:.08em; margin-bottom:1.5rem;
+}
+.tl-highlights { list-style:none; }
+.tl-highlights li {
+  font-size:.7rem; padding:.5rem 0; border-top:1px solid var(--border);
+  color:var(--muted); display:flex; gap:.6rem; line-height:1.7;
+}
+.tl-highlights li::before { content:'→'; color:var(--accent); flex-shrink:0; }
+
+/* COURSEWORK */
+.courses-section { padding:4rem 3rem; background:rgba(10,21,32,.5); position:relative;z-index:1; }
+.courses-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:2px; margin-top:3rem; }
+.course-pill {
+  background:var(--surface); padding:1.2rem 1.5rem;
+  font-size:.68rem; color:var(--text); letter-spacing:.06em;
+  border-left:2px solid transparent; transition:all .2s; cursor:default;
+}
+.course-pill:hover { border-left-color:var(--accent); color:var(--accent); background:rgba(0,255,136,.03); }
+
+@media(max-width:768px){
+  .edu-hero,.timeline-section,.courses-section { padding-left:1.5rem; padding-right:1.5rem; }
+  .timeline { padding-left:40px; }
+}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<div class="grid-bg"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">AD_</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="hide-sm">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="certifications.html" class="hide-sm">Certs</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resume.html" class="nav-resume">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <section class="edu-hero">
+    <div class="section-tag reveal">Academic Journey</div>
+    <h1 class="page-title reveal">Edu<span class="accent">cation</span></h1>
+    <p class="page-subtitle reveal">Building a strong academic foundation while going deep into real-world security practice.</p>
+  </section>
+
+  <section class="timeline-section">
+    <div class="section-tag reveal">Timeline</div>
+
+    <div class="timeline">
+      <!-- Current -->
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-period">
+            Aug 2024 – Present
+            <span class="tl-current">Currently Enrolled</span>
+          </div>
+          <div class="tl-degree">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="tl-school">Lovely Professional University · Phagwara, Punjab</div>
+          <div class="tl-grade">◆ CGPA: 8.0 / 10</div>
+          <ul class="tl-highlights">
+            <li>Specializing in cybersecurity, system administration, and software development</li>
+            <li>Active participant in CTF challenges, hackathons, and security research</li>
+            <li>Achieved Top 1% on TryHackMe while enrolled — 180+ rooms completed</li>
+            <li>Top 10 finish at Google I/O Extended Hackathon 2024</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Previous -->
+      <div class="tl-item reveal">
+        <div class="tl-dot" style="border-color:var(--accent2);"></div>
+        <div class="tl-card" style="border-left:none;">
+          <div class="tl-period">Aug 2021 – Jun 2024</div>
+          <div class="tl-degree">Diploma — Computer Science &amp; Engineering</div>
+          <div class="tl-school">Mehr Chand Polytechnic College · Jalandhar, Punjab</div>
+          <div class="tl-grade" style="background:rgba(0,255,136,.04);border-color:rgba(0,255,136,.15);color:var(--accent);">◆ 72.29%</div>
+          <ul class="tl-highlights">
+            <li>Built a strong foundational understanding of CS fundamentals, networking, and programming</li>
+            <li>Developed practical skills in C++, Python, and database management</li>
+            <li>Completed 3-year diploma program bridging into B.Tech engineering</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELEVANT COURSEWORK -->
+  <section class="courses-section">
+    <div class="section-tag reveal">Academics</div>
+    <div class="page-title reveal">Relevant <span class="accent">Coursework</span></div>
+    <div class="courses-grid">
+      <div class="course-pill reveal">Network Security</div>
+      <div class="course-pill reveal">Operating Systems</div>
+      <div class="course-pill reveal">Data Structures & Algorithms</div>
+      <div class="course-pill reveal">Database Management</div>
+      <div class="course-pill reveal">Computer Networks</div>
+      <div class="course-pill reveal">Cryptography</div>
+      <div class="course-pill reveal">Software Engineering</div>
+      <div class="course-pill reveal">Linux System Admin</div>
+      <div class="course-pill reveal">Cloud Computing</div>
+      <div class="course-pill reveal">Mobile Development</div>
+      <div class="course-pill reveal">Web Technologies</div>
+      <div class="course-pill reveal">Ethical Hacking</div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Anurag Davesar © 2025</span>
+    <span>anuragdavesa@gmail.com</span>
+  </footer>
+</div>
+<script src="shared.js"></script>
+</body>
+</html>
